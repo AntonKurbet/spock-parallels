@@ -1,16 +1,19 @@
+package ru.sample
+
 import spock.lang.Execution
+import spock.lang.Ignore
 import spock.lang.Specification
 
 import static java.lang.System.currentTimeMillis
-import static Common.printInfo
+import static ru.sample.common.Tools.printInfo
 
 import static org.spockframework.runtime.model.parallel.ExecutionMode.CONCURRENT
-import static org.spockframework.runtime.model.parallel.ExecutionMode.SAME_THREAD
 
 class Simple1Spec extends Specification {
     static long startTime = currentTimeMillis()
     static volatile int execCount = 0
 
+    @Ignore
     def "feature-A-#count"() {
         given:
         def i = ++execCount

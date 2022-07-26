@@ -1,8 +1,12 @@
+package ru.sample
+
+import ru.sample.annotations.MinorTests
 import spock.lang.Specification
 
-import static Common.printInfo
+import static ru.sample.common.Tools.printInfo
 import static java.lang.System.currentTimeMillis
 
+@MinorTests
 class Simple3Spec extends Specification {
     static long startTime = currentTimeMillis()
     static volatile int execCount = 0

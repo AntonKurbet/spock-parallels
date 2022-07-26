@@ -1,14 +1,21 @@
+import ru.sample.annotations.MajorTests
+import ru.sample.annotations.MinorTests
+
 import static org.spockframework.runtime.model.parallel.ExecutionMode.CONCURRENT
-import static org.spockframework.runtime.model.parallel.ExecutionMode.SAME_THREAD
 
 runner {
+//    include {
+//        annotation MajorTests
+//    }
+    exclude {
+        annotation MinorTests
+//        baseClass Specification
+    }
     parallel {
         enabled true
-        // These values are the default already, specifying them is redundant
-        // defaultSpecificationExecutionMode = CONCURRENT
-        // defaultExecutionMode = CONCURRENT
-        defaultSpecificationExecutionMode SAME_THREAD
-        defaultExecutionMode SAME_THREAD
+        // defaultSpecificationExecutionMode SAME_THREAD
+        defaultSpecificationExecutionMode CONCURRENT
+        defaultExecutionMode CONCURRENT
         fixed Runtime.runtime.availableProcessors()
     }
 }
